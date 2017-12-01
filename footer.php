@@ -1,0 +1,3 @@
+	<script type="text/javascript" src="function.js"></script>
+</body>
+</html>
