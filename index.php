@@ -1,42 +1,42 @@
+<?php 
+	session_start(); 
+
+	if (isset($_POST['user_profile'])){
+		header('location: user_profile.php');
+	}
+
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['Student_Name']);
+		header("location: index.php");
+	}
+?>
+
 <?php include "header.php"; ?>
-
-	<div>
-		<a href="index.php">Forum</a>
-	</div>
-
-	<div>
-		<button id="myBtn">Log in/Register</button>
-	</div>
-	  
-	<div class="topnav">
-	  	<input type="text" placeholder="Search..">
-	  	<button onclick="Search_function()">Go</button>
-	</div>
-
-	<div>
-	  <img src="CC_legend_KS.jpeg" alt="UPM Legendary Paladins player">
-	</div>
 
 	<div>
 	  <h1>Categories: <br></h1>
 	</div>
 
 	<div>
-	  <button onclick="Engineering()">Engineering</button>
+	  <button onclick="engineering()"><a href="engineering.php">Engineering</a></button>
 	</div>
 
 	<div>
-	  <button onclick="Computer_Science()">Computer Science</button>
+	  <button onclick="computer_science()"><a href="computer_science.php">Computer Science</a></button>
 	</div>
 
 	<div>
-	  <button onclick="Medical()">Medical</button>
+	  <button onclick="medical()"><a href="medical.php">Medical</a></button>
 	</div>
 
 	<div>
-	  <button onclick="Economy()">Economy</button>
+	  <button onclick="economy()"><a href="economy.php">Economy</a></button>
 	</div>
 
+	<div>
+	  <button onclick="testing()"><a href="content.php?category='1'">Economy</a></button>
+	</div>
 
 
 <?php include "footer.php"; ?>

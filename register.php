@@ -17,9 +17,15 @@
 			<label>Email</label>
 			<input type="email" name="Student_Email" value="<?php echo $Student_Email; ?>">
 		</div>
+
+		<div class="input-group">
+			<label>Student Course</label>
+			<input type="text" name="Student_Course" value="<?php echo $Student_Course; ?>">
+		</div>
+
 		<div class="input-group">
 			<label>Password</label>
-			<input type="Student_Password" name="Student_Password">
+			<input type="password" name="Student_Password">
 		</div>
 		<div class="input-group">
 			<label>Confirm password</label>
@@ -32,5 +38,5 @@
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
 	</form>
-	
+
 <?php include "footer.php"; ?>

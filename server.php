@@ -3,34 +3,40 @@
 // variable declaration
 $Student_Name = "";
 $Student_Email    = "";
+$Student_Course	= "";
 $errors = array(); 
 $_SESSION['success'] = "";
 
+include "connect.php";
 // connect to database
-$db = mysqli_connect('localhost:3306', 'root', '', 'cc_forum');
+//$db = mysqli_connect('localhost:3306', 'root', '', 'cc_forum');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
 	// receive all input values from the form
 	$Student_Name = mysqli_real_escape_string($db, $_POST['Student_Name']);
 	$Student_Email = mysqli_real_escape_string($db, $_POST['Student_Email']);
+	$Student_Course = mysqli_real_escape_string($db, $_POST['Student_Course']);
 	$Student_Password = mysqli_real_escape_string($db, $_POST['Student_Password']);
 	$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($Student_Name)) { array_push($errors, "Username is required"); }
 	if (empty($Student_Email)) { array_push($errors, "Email is required"); }
+	if (empty($Student_Course)) { array_push($errors, "Course is required"); }
 	if (empty($Student_Password)) { array_push($errors, "Password is required"); }
 
 	if ($Student_Password != $password_2) {
 		array_push($errors, "The two passwords do not match");
 	}
 
+	$reg_date = date("Y-m-d");
+
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		$password = md5($Student_Password);//encrypt the password before saving in the database
-		$query = "INSERT INTO student (Student_Name, Student_Password, Student_Email) 
-				  VALUES('$Student_Name', '$Student_Password', '$Student_Email')";
+		$query = "INSERT INTO student (Student_Name, Student_Password, Student_Email,Student_RegDate, Student_Course) 
+				  VALUES('$Student_Name', '$Student_Password', '$Student_Email', '$reg_date', '$Student_Course')";
 		mysqli_query($db, $query);
 
 		$_SESSION['Student_Name'] = $Student_Name;
