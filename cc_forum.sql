@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2017 at 08:31 AM
+-- Generation Time: Dec 03, 2017 at 03:48 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -71,6 +71,16 @@ CREATE TABLE `categories` (
   `Cat_Description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`Cat_ID`, `Cat_Name`, `Cat_Description`) VALUES
+(1, 'engineering', 'engineering stuffs'),
+(2, 'Computer science', 'Computer geeks'),
+(3, 'Medical', 'An apple a day keeps dis doctors away'),
+(4, 'Economy', 'Country\'s development based on their analysis');
+
 -- --------------------------------------------------------
 
 --
@@ -114,6 +124,7 @@ CREATE TABLE `report` (
 
 CREATE TABLE `student` (
   `Student_ID` int(11) NOT NULL,
+  `Student_Matrik` int(6) NOT NULL,
   `Student_Name` varchar(255) DEFAULT NULL,
   `Student_Password` varchar(255) DEFAULT NULL,
   `Student_Email` varchar(255) DEFAULT NULL,
@@ -125,10 +136,11 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`Student_ID`, `Student_Name`, `Student_Password`, `Student_Email`, `Student_RegDate`, `Student_Course`) VALUES
-(1, 'test', '123456', '123456@123.com', '2017-12-01', 'COMPUTER AND COMMUNICATION SYSTEMS ENGINEERING'),
-(2, 'test_1', '12345', '12345@123.com', NULL, NULL),
-(3, 'test_2', '1234', '1234@123.com', NULL, NULL);
+INSERT INTO `student` (`Student_ID`, `Student_Matrik`, `Student_Name`, `Student_Password`, `Student_Email`, `Student_RegDate`, `Student_Course`) VALUES
+(1, 0, 'test', '123456', '123456@123.com', '2017-12-01', 'COMPUTER AND COMMUNICATION SYSTEMS ENGINEERING'),
+(2, 0, 'test_1', '12345', '12345@123.com', NULL, NULL),
+(3, 0, 'test_2', '1234', '1234@123.com', NULL, NULL),
+(4, 0, 'choo', '123456', 'choo@choo.com', '2017-12-01', 'ccse');
 
 -- --------------------------------------------------------
 
@@ -139,6 +151,7 @@ INSERT INTO `student` (`Student_ID`, `Student_Name`, `Student_Password`, `Studen
 CREATE TABLE `topics` (
   `Topic_ID` int(11) NOT NULL,
   `Topic_Subject` varchar(255) DEFAULT NULL,
+  `Topic_Content` varchar(1000) NOT NULL,
   `Topic_Date` date DEFAULT NULL,
   `Topic_Cat` varchar(255) DEFAULT NULL,
   `Topic_By` varchar(255) DEFAULT NULL,
@@ -217,7 +230,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `Cat_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Cat_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `replies`
@@ -235,7 +248,7 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `Student_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Student_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `topics`

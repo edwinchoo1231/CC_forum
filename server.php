@@ -1,4 +1,4 @@
-<?php session_start();
+<?php //session_start();
 
 // variable declaration
 $Student_Name = "";

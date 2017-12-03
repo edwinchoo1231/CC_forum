@@ -10,7 +10,12 @@
 	</div>
 
 	<div>
+		<?php if ($_SESSION['pages']=="create_topic"):?>
+		<p>GOOODDD</p>
+		<?php endif ?>
+		<?php if ($_SESSION['pages']!="create_topic"):?>
 		<a href="create_topic.php">Create a Topic</a>
+		<?php endif ?>
 	</div>
 
 	<div>
